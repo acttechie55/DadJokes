@@ -1,4 +1,4 @@
-//Styling General Elements (Input, Headings, Cards, etc)
+/**Styling General Elements (Input, Headings, Pagination, Cards, etc)**/
 
 //Input
 input[type='text'] {
@@ -9,8 +9,7 @@ input[type='text'] {
     border-radius: $border-radius-1;
     border: $border-1;
     font-weight: bold;
-    //margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     //Error
     &.ng-invalid {
@@ -32,6 +31,10 @@ input[type='text'] {
             margin-bottom: 40px;
             .error-message {
                 background-color: $white;
+                border-radius: $border-radius-1;
+                border: $border-1;
+                font-family: $body-font;
+                font-size: $font-size-small;
                 color: $red;
                 padding: 5px 10px;
             }
@@ -86,7 +89,7 @@ input[type='text'] {
 .pagination {
     margin: 0;
     padding-left:0;
-    font-family: 'Bangers', cursive;
+    font-family: $comic-font;
     letter-spacing: 2px;
 }
 
@@ -124,7 +127,6 @@ input[type='text'] {
     color: $black;
     text-decoration: none;
     background-color: $comic-yellow;
-    //border-color: #dee2e6;
 }
 
 .page-item.disabled .page-link {
@@ -149,7 +151,7 @@ input[type='text'] {
     margin-bottom: 40px;
     width: auto;
     h1 {
-        font-family: 'Bangers', cursive;
+        font-family: $comic-font;
         letter-spacing: 2px;
     }
 }

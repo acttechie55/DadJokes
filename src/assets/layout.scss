@@ -3,10 +3,15 @@ $border-radius-2: 20px;
 $border-1: 2px solid $black;
 $error-border-1: 2px solid $red;
 
+$body-font: 'Noto Sans', sans-serif;
+$comic-font: 'Bangers', cursive;
+$font-size-small: 12px;
+
 body,
 html {
     background-color: $comic-blue;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: $body-font;
+   
 }
 
 .main {
