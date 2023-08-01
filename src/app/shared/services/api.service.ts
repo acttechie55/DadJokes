@@ -10,7 +10,6 @@ query: string;
  status: string = 'not ready';
  pageNum:number = 1;
  jsonData:any;
- //listPassedData: BehaviorSubject<any> = new BehaviorSubject<any>([]);
  json_data_url: string = 'https://icanhazdadjoke.com/search?term=';
  static readonly error_message: string = 'Something went wrong during data fetch: ';
 
@@ -40,12 +39,10 @@ private defaultErrorHandler(error: any, jsonDataUrl: string): Promise<any> {
 }
 
 
-
+//My attempt to get data from this API
 getTodoJsonModuleData() {
   const jsonData = this.fetchJsonData(this.query);
-  //console.log('import - todo json data: ', this.query, jsonData);
   console.log('from the service', jsonData)
- // this.listPassedData.next(jsonData);
    return jsonData;
 
 }
