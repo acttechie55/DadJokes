@@ -1,0 +1,17 @@
+<form [formGroup]="jokeForm" class="section-margin-bottom">
+    <div class="input-wrapper">
+        <label class="label sr-only" for="searchBar">Search Dad Jokes Here</label>
+        <input type="text" [attr.aria-invalid]="(searchBar.errors?.['pattern']) ? true : null" 
+        id="searchBar" name="searchBar" formControlName="searchBar" [attr.aria-describedby]="(searchBar.errors?.['pattern']) ? 'search_error' : null"  [pattern]="searchBarPattern" 
+        [ngClass]="{'error':searchBar.errors?.['pattern']}" />
+        <div class="error-message-container" *ngIf="searchBar.errors?.['pattern']">
+            <span role="alert" id="search_error" class="error-message">
+                Please enter only alphabets. No numbers or special characters.
+            </span>
+        </div>
+    </div>
+    <div>
+        <button class="btn" type="submit" [disabled]="(searchBar.value === '') || (searchBar.errors?.['pattern'])"
+            (click)="officialJokeSubmitBtn();">Search</button>
+    </div>
+</form>

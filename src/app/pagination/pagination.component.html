@@ -1,0 +1,19 @@
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" (click)="prevPage()" [ngClass]="{'disabled':pagesData.current_page == 1}">
+            <a class="page-link" [attr.disabled]="pagesData.current_page == 1" href="#">Previous
+                <span class="sr-only" *ngIf="pagesData.current_page == 1">This link is disabled because there is only one page of search results.</span>
+            </a>
+        </li>
+        <li (click)="selectPageNumber(i+1)" *ngFor="let n of numSequence(pagesData.total_pages);let i = index;"
+        [ngClass]="{'active':pagesData.current_page == (i+1)}"
+         class="page-item">
+            <a class="page-link" href="#">{{i + 1}}</a>
+        </li>
+        <li class="page-item" (click)="nextPage()" [ngClass]="{'disabled':(pagesData.total_pages == pagesData.current_page)}">
+            <a class="page-link" [attr.disabled]="(pagesData.total_pages == pagesData.current_page)" href="#">Next
+                <span class="sr-only" *ngIf="(pagesData.total_pages == pagesData.current_page)">This link is disabled because there is only one page of search results.</span>
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,6 @@
+<h2 class="sr-only">List of Jokes</h2>
+<ul class="card-container section-margin-bottom" *ngIf="jokeService.status == 'ready'">
+    <li tabindex="0" class="card-container-list" id="dadJokesList{{i}}" *ngFor="let joke of listData;let i =index">
+        {{joke.joke | json}}
+    </li>
+</ul>

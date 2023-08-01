@@ -1,0 +1,155 @@
+//Styling General Elements (Input, Headings, Cards, etc)
+
+//Input
+input[type='text'] {
+    width: 98%;
+    display: block;
+    padding-left:10px;
+    height: 50px;
+    border-radius: $border-radius-1;
+    border: $border-1;
+    font-weight: bold;
+    //margin-right: 10px;
+    margin-bottom: 10px;
+
+    //Error
+    &.ng-invalid {
+        color: $red;
+        border: $error-border-1;
+    }
+    @include lg {
+        width: 400px;
+        display: inline;
+        padding: 0px 10px;
+        height: 35px;
+        border-radius: $border-radius-2;
+    }
+}
+.input-wrapper{
+    display: inline;
+
+    .error-message-container {
+            margin-bottom: 40px;
+            .error-message {
+                background-color: $white;
+                color: $red;
+                padding: 5px 10px;
+            }
+    }
+}
+
+//Buttons
+.btn {
+    width:100%;
+    background-color: $comic-yellow;
+    color: $black;
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: $border-radius-2;
+    font-weight: bold;
+    border: $border-1;
+    &:hover {
+        cursor: pointer;
+    }
+    &:disabled {
+        cursor: not-allowed;
+        background-color: rgba($comic-yellow, .7);
+    }
+    @include lg {
+        width: auto;
+        margin-left: 10px;
+    }
+}
+
+//List of Cards
+.card-container {
+    list-style: none;
+    padding-left: 0px;
+    margin: auto;
+
+    .card-container-list {
+        background-color: $white;
+        color: $black;
+        border-radius: $border-radius-1;
+        border: $border-1;
+        margin-top: 10px;
+        padding: 35px 40px;
+    }
+    @include lg {
+        width: 500px;
+    }
+        
+}
+
+
+//Pagination
+.pagination {
+    margin: 0;
+    padding-left:0;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+}
+
+.page-item {
+    display: inline-block;
+    &:first-of-type .page-link {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    &:last-of-type .page-link {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    &.disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+}
+
+.page-link {
+    color: $black;
+    background-color: #fff;
+    border-top: $border-1;
+    border-bottom: $border-1;
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    &.disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+}
+
+.page-link:hover,
+.page-link:focus {
+    color: $black;
+    text-decoration: none;
+    background-color: $comic-yellow;
+    //border-color: #dee2e6;
+}
+
+.page-item.disabled .page-link {
+    pointer-events: none;
+    cursor: not-allowed;
+    text-decoration: none;
+    &:hover {
+        background-color: $white;
+    }
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: $black;
+    background-color: $comic-yellow;
+}
+
+//Heading Title
+.heading-container {
+    background-color: $white;
+    border: $border-1;
+    margin-bottom: 40px;
+    width: auto;
+    h1 {
+        font-family: 'Bangers', cursive;
+        letter-spacing: 2px;
+    }
+}

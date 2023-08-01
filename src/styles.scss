@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+//STYLES STORAGE
+
+
+//Import all SCSS files in assets folder here
+@import "assets/responsive.scss";
+@import "assets/colors.scss";
+@import "assets/layout.scss";
+@import "assets/elements.scss";
+@import "assets/utilities.scss";
+
+
+//Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');

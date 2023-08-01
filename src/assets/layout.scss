@@ -1,0 +1,33 @@
+$border-radius-1: 10px;
+$border-radius-2: 20px;
+$border-1: 2px solid $black;
+$error-border-1: 2px solid $red;
+
+body,
+html {
+    background-color: $comic-blue;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.main {
+    padding: 40px;
+    text-align: center;
+    margin: auto;
+    @include lg {
+        width: 700px;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
