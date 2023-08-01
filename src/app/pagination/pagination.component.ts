@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TransportObjectDataService } from '../shared/services/transport-object.service';
 import { ApiService } from '../shared/services/api.service';
 
@@ -13,10 +13,11 @@ export class PaginationComponent implements OnInit {
 
   constructor(public jokeService:ApiService, public transportObjectData:TransportObjectDataService) {
     
-    //Retrieves Object from Transport Service That Contains Info Regarding Page Number (i.e. "current_page, etc")
+    //Retrieves Entire JSON Data from Transport Service That Contains Info Regarding Page Number (i.e. "current_page, etc")
     this.transportObjectData.retrievePageNumObject().subscribe(data => {
       this.pagesData = data;
     });
+
   }
 
   ngOnInit(): void {}
