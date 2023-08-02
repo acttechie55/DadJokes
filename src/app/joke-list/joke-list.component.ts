@@ -10,7 +10,6 @@ import { TransportObjectDataService } from '../shared/services/transport-object.
 export class JokeListComponent implements OnInit {
   
   isLoading: boolean = true;
-  status: string = 'loading';
   listData: any = {};
 
   constructor(public jokeService: ApiService, public transportObjectData:TransportObjectDataService, private renderer: Renderer2) { 

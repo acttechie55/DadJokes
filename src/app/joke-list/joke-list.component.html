@@ -1,4 +1,17 @@
 <h2 class="sr-only">List of Jokes</h2>
+
+<div class="card-container">
+    <div appFocus tabindex="0" class="card-container-slim card-container-orange">
+        <p *ngIf="jokeService.jsonData.total_jokes > 10"><span class="sr-only"> Search Results:</span>Showing
+            {{jokeService.jsonData.current_page}} <span aria-hidden="true">-</span><span class="sr-only">of</span> 10 Dad
+            Jokes of {{jokeService.jsonData.total_jokes}}</p>
+        <p *ngIf="jokeService.jsonData.total_jokes < 10"><span class="sr-only"> Search Results:</span>Showing 1 <span
+                aria-hidden="true">-</span><span class="sr-only">of</span> {{jokeService.jsonData.total_jokes}} Dad Jokes of
+            {{jokeService.jsonData.total_jokes}}</p>
+    </div>
+</div>
+
+
 <ul class="card-container section-margin-bottom" *ngIf="jokeService.status == 'ready'">
     <li tabindex="0" class="card-container-list" id="dadJokesList{{i}}" *ngFor="let joke of listData;let i =index">
         {{joke.joke | json}}
