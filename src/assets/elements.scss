@@ -167,8 +167,12 @@ input[type='text'] {
     border: $border-1;
     margin-bottom: 40px;
     width: auto;
+    padding: 10px 10px;
     h1 {
         font-family: $comic-font;
         letter-spacing: 2px;
+    }
+    @include lg {
+        padding: 0px;
     }
 }
