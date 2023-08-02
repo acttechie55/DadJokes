@@ -17,12 +17,12 @@ export class JokeListComponent implements OnInit {
   this.transportObjectData.retrievePassedObject().subscribe(data => {
       this.listData = data;
   });
-
   //Note to hiring manager: I came really close to getting this to work, but I kept getting errors that I couldn't resolve by myself
   //  this.jokeService.getTodoJsonModuleData().then((data) => {
   //     this.listData = data;
   //     console.log(this.listData)
   //   })
+  console.log(this.jokeService.jsonData)
   }
 
   ngOnInit() {

@@ -2,18 +2,36 @@
 
 <div class="card-container">
     <div appFocus tabindex="0" class="card-container-slim card-container-orange">
-        <p *ngIf="jokeService.jsonData.total_jokes > 10"><span class="sr-only"> Search Results:</span>Showing
-            {{jokeService.jsonData.current_page}} <span aria-hidden="true">-</span><span class="sr-only">of</span> 10 Dad
-            Jokes of {{jokeService.jsonData.total_jokes}}</p>
-        <p *ngIf="jokeService.jsonData.total_jokes < 10"><span class="sr-only"> Search Results:</span>Showing 1 <span
-                aria-hidden="true">-</span><span class="sr-only">of</span> {{jokeService.jsonData.total_jokes}} Dad Jokes of
-            {{jokeService.jsonData.total_jokes}}</p>
+        <!-- If there are more than 10 jokes (more than 1 page) -->
+        <p *ngIf="jokeService.jsonData.total_jokes > 10">
+            <span class="sr-only"> Search Results:</span>Showing
+            <ng-container *ngIf="jokeService.jsonData.current_page == 1">
+                {{jokeService.jsonData.current_page}} -
+                <ng-container *ngIf="jokeService.jsonData.total_pages > 1">10</ng-container>
+                <ng-container *ngIf="jokeService.jsonData.total_pages < 1">{{jokeService.jsonData.total_jokes}}</ng-container>
+            </ng-container>
+            <ng-container *ngIf="jokeService.jsonData.current_page > 1">
+                {{jokeService.jsonData.previous_page * 11}} 
+                <ng-container *ngIf="(jokeService.jsonData.current_page !== 1) && (jokeService.jsonData.current_page !== jokeService.jsonData.total_pages)"> - {{jokeService.jsonData.previous_page * 11 + 10}} </ng-container>
+            </ng-container>
+            <ng-container *ngIf="jokeService.jsonData.current_page == jokeService.jsonData.total_pages">
+                - {{jokeService.jsonData.total_jokes}}
+            </ng-container>
+             Dad Jokes of {{jokeService.jsonData.total_jokes}}
+        </p>
+
+        <!-- If there are less than 10 jokes -->
+        <p *ngIf="jokeService.jsonData.total_jokes > 0 && jokeService.jsonData.total_jokes < 10">
+            <span class="sr-only"> Search Results:</span>Showing 1 -
+            {{jokeService.jsonData.total_jokes}} Dad Jokes of
+            {{jokeService.jsonData.total_jokes}}
+        </p>
     </div>
 </div>
 
 
 <ul class="card-container section-margin-bottom" *ngIf="jokeService.status == 'ready'">
-    <li tabindex="0" class="card-container-list" id="dadJokesList{{i}}" *ngFor="let joke of listData;let i =index">
+    <li tabindex="0" class="card-container-list" id="dadJokesList{{i}}" *ngFor="let joke of jokeService.jsonData.results;let i =index">
         {{joke.joke | json}}
     </li>
 </ul>
