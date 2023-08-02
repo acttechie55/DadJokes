@@ -70,6 +70,19 @@ input[type='text'] {
     padding-left: 0px;
     margin: auto;
 
+    .card-container-slim {    
+        display: block;
+        border: $border-1;
+        padding: 0px 10px;
+        border-radius: $border-radius-1;
+        &.card-container-orange {
+            background-color: $comic-orange;
+        }
+        p {
+            margin: 10px 0px;
+        }
+    }
+
     .card-container-list {
         background-color: $white;
         color: $black;
@@ -80,6 +93,10 @@ input[type='text'] {
     }
     @include lg {
         width: 500px;
+        .card-container-slim {
+            display: inline-block;
+            padding: 0px 20px;
+        }
     }
         
 }
