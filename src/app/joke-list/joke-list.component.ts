@@ -8,8 +8,6 @@ import { ApiService } from '../shared/services/api.service';
 })
 export class JokeListComponent implements OnInit {
   
-  isLoading: boolean = true;
-  listData: any = {};
 
   constructor(public jokeService: ApiService, private renderer: Renderer2) { 
  

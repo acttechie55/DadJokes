@@ -7,7 +7,6 @@ import { ApiService } from '../shared/services/api.service';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  pagesData: any = Object;
   updatedJsonData: any = Object;
 
   constructor(public jokeService:ApiService) {
