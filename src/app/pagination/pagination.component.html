@@ -1,18 +1,21 @@
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
-        <li class="page-item" (click)="prevPage()" [ngClass]="{'disabled':pagesData.current_page == 1}">
-            <a class="page-link" [attr.disabled]="pagesData.current_page == 1" href="#">Previous
-                <span class="sr-only" *ngIf="pagesData.current_page == 1">This link is disabled because there is only one page of search results.</span>
+        <li class="page-item" (click)="prevPage()" [ngClass]="{'disabled':jokeService.jsonData.current_page == 1}">
+            <a class="page-link" [attr.disabled]="jokeService.jsonData.current_page == 1" href="#">Previous
+                <span class="sr-only" *ngIf="jokeService.jsonData.current_page == 1">This link is disabled because there is only
+                    one page of search results.</span>
             </a>
         </li>
-        <li (click)="selectPageNumber(i+1)" *ngFor="let n of numSequence(pagesData.total_pages);let i = index;"
-        [ngClass]="{'active':pagesData.current_page == (i+1)}"
-         class="page-item">
+        <li (click)="selectPageNumber(i+1)" *ngFor="let n of numSequence(jokeService.jsonData.total_pages);let i = index;"
+            [ngClass]="{'active':jokeService.jsonData.current_page == (i+1)}" class="page-item">
             <a class="page-link" href="#"><span class=sr-only>Page</span>{{i + 1}}</a>
         </li>
-        <li class="page-item" (click)="nextPage()" [ngClass]="{'disabled':(pagesData.total_pages == pagesData.current_page)}">
-            <a class="page-link" [attr.disabled]="(pagesData.total_pages == pagesData.current_page)" href="#">Next
-                <span class="sr-only" *ngIf="(pagesData.total_pages == pagesData.current_page)">This link is disabled because you are there is only one page of results or you have reached the last page of the results.</span>
+        <li class="page-item" (click)="nextPage()"
+            [ngClass]="{'disabled':(jokeService.jsonData.total_pages == jokeService.jsonData.current_page)}">
+            <a class="page-link" [attr.disabled]="(jokeService.jsonData.total_pages == jokeService.jsonData.current_page)" href="#">Next
+                <span class="sr-only" *ngIf="(jokeService.jsonData.total_pages == jokeService.jsonData.current_page)">This link is disabled
+                    because you are there is only one page of results or you have reached the last page of the
+                    results.</span>
             </a>
         </li>
     </ul>

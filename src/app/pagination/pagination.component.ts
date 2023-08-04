@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TransportObjectDataService } from '../shared/services/transport-object.service';
 import { ApiService } from '../shared/services/api.service';
 
 @Component({
@@ -11,12 +10,8 @@ export class PaginationComponent implements OnInit {
   pagesData: any = Object;
   updatedJsonData: any = Object;
 
-  constructor(public jokeService:ApiService, public transportObjectData:TransportObjectDataService) {
-    
-    //Retrieves Entire JSON Data from Transport Service That Contains Info Regarding Page Number (i.e. "current_page, etc")
-    this.transportObjectData.retrievePageNumObject().subscribe(data => {
-      this.pagesData = data;
-    });
+  constructor(public jokeService:ApiService) {
+  
 
   }
 
@@ -24,25 +19,22 @@ export class PaginationComponent implements OnInit {
 
   /** Set page number and Send To Joke Service*/
   selectPageNumber(pageNumber: number) {
-    this.pagesData.current_page = pageNumber;
+    this.jokeService.jsonData.current_page = pageNumber;
     //Send Updated Page Number to JSON Data in Joke Service 
-    this.jokeService.fetchJsonData(this.pagesData.search_term, pageNumber).then((jsonData) => {
+    this.jokeService.fetchJsonData(this.jokeService.jsonData.search_term, pageNumber).then((jsonData) => {
       this.updatedJsonData = jsonData;
-  
-      //Send Updated New Joke List to Transport Service
-      this.transportObjectData.storePassedJokeListObject(this.updatedJsonData.results);
     })
   }
 
   /** Set next page number */
   nextPage() {
-    const nextPage = this.pagesData.current_page + 1;
+    const nextPage = this.jokeService.jsonData.current_page + 1;
     this.selectPageNumber(nextPage);
   }
 
   /** Set previous page number */
   prevPage() {
-    const prevPage = this.pagesData.current_page - 1;
+    const prevPage = this.jokeService.jsonData.current_page - 1;
     this.selectPageNumber(prevPage);
   }
 

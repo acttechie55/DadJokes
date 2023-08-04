@@ -1,7 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../shared/services/api.service';
-import { TransportObjectDataService } from '../shared/services/transport-object.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -15,7 +14,7 @@ export class SearchBarComponent {
   jokeData: any;
 
 
-  constructor(private formBuilder: FormBuilder, public jokeService: ApiService, public transportObjectData:TransportObjectDataService, private renderer: Renderer2) {
+  constructor(private formBuilder: FormBuilder, public jokeService: ApiService) {
     this.jokeForm = this.formBuilder.group({
       searchBar: ''
     });
@@ -40,11 +39,7 @@ export class SearchBarComponent {
     this.jokeService.fetchJsonData(this.jokeInput).then((jsonData) => {
       this.jokeData = jsonData;
 
-      //Send Entire Object from Joke Service to Transport Service 
-      this.transportObjectData.storePassedNumObject(this.jokeData);
 
-      //Send List of Jokes from Joke Service to Transport Service
-      this.transportObjectData.storePassedJokeListObject(this.jokeData.results);
     })
 
   }
