@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
 
 @Component({
@@ -7,9 +7,9 @@ import { ApiService } from '../shared/services/api.service';
   styleUrls: ['./joke-list.component.scss']
 })
 export class JokeListComponent implements OnInit {
-  
 
-  constructor(public jokeService: ApiService, private renderer: Renderer2) { 
+
+  constructor(public jokeService: ApiService) { 
  
   }
 

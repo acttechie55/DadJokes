@@ -11,7 +11,7 @@ export class PaginationComponent implements OnInit {
 
   constructor(public jokeService:ApiService) {
   
-
+    
   }
 
   ngOnInit(): void {}
